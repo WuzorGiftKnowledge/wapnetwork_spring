@@ -1,0 +1,133 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>	Word and Prayer Network</title>
+        <link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+        <script th:src="@{/js/jquery.min.js}"></script>
+    </head>
+    <body>
+        <!-- header -->
+        <style>
+
+            img{
+             width:180px;
+             height:180px;
+            }
+                        
+
+        </style>
+        <div th:replace="includes :: header"></div>	
+        <!-- header -->
+
+        <!-- contact -->
+        <div class="contact">
+            <div class="container">
+                <h2>NEW PROGRAM</h2>
+
+
+                <!----- contact-grids ----->		
+                <div class="contact-grids">
+
+
+                    <div class="clearfix"> </div>
+                    <!----- contact-form ------>
+                    <div class="contact-form">
+                        <form method="POST" action="/program" th:object="${prog}" enctype="multipart/form-data">
+
+                            <div class="contact-form-row">
+                                <div>
+                                    <span>Program Title :</span>
+                                    <input th:field="*{title}" type="text" class="text" placeholder="Enter the title of the program" />
+                                </div>
+                                <div>
+                                    <span>Theme :</span>
+                                    <input th:field="*{theme}" type="text" class="text" placeholder="Enter program theme " >
+                                </div>	
+
+                                <div>
+                                    <span>Speaker(s) :</span>
+                                    <input th:field="*{speakers}" type="text" class="text" placeholder="Enter the name of the speakers  " >
+                                </div>
+
+                                <div>
+                                    <span>Date :</span>
+                                    <input th:field="*{programDate}" type="text" class="text" placeholder="Enter the date of the program " >
+                                </div>
+
+                                <div>
+                                    <span>Time :</span>
+                                    <input th:field="*{programTime}" type="text" class="text" placeholder="Enter the time of the program " >
+                                </div>
+                                <div>
+                                    <span>venue :</span>
+                                    <input th:field="*{venue}" type="text" class="text" placeholder="Enter the venue of the program " >
+                                </div>
+                                <div>
+                                    <span>Image :</span>
+                                    <input type='file' onchange="readURL(this);" name="programImage"/>
+                                    <img id="blah" th:src="*{pImage.location}" alt="" />
+
+
+                                     <!--<img id="blah" src="http://placehold.it/180" alt="" />-->
+
+                                    <input type="hidden"  name="serId" th:field="*{id}"  />
+                                    <!--<button type="submit" value="upload" formaction="/program" method="post" id="im" enctype="multipart/form-data">Upload</button>-->
+                                    <!--   <div class=" ></div> -->
+                                    <!--<div id="frame" src="" width="100px" height="100px">--> 
+                                    <!--<img th:src="*{pImage.location}" class="img-responsive" alt=""/>-->
+                                    <!--</div>-->
+                                </div>
+
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                            <div class="contact-form-row2">
+                                <span>Program Details:</span>
+                                <textarea th:field="*{description}"> </textarea>
+                            </div>
+                            <input type="submit" value="send" />
+
+
+                            <!----- contact-form ------>
+                    </div>
+                </div>	<!----- contact-grids ----->
+
+            </div>
+        </div>
+
+        <!-- contact -->		
+        <!-- footer -->
+
+        <div th:replace="includes :: footer"></div>	
+
+        <script>
+            function readURL(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+            $('#blah')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+            }
+            }
+                    
+        </script>
+
+        <!-- footer -->
+    </body>
+</html>

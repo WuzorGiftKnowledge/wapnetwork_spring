@@ -1,0 +1,83 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>	Holy Church a Religious Category Flat Bootstarp Responsive Website Template | Contact :: w3layouts</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+<script th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+<!-- header -->
+	<!-- header -->
+       <div th:replace="includes :: header"></div>	
+	<!-- header -->
+	<!-- contact -->
+	<div class="contact">
+	<div class="container">
+		<h2>Devotional Blog</h2>
+
+					<div class="contact-head text-center">
+						<p>In the Word of God lies the power of God. We share the word of God daily on this page. Empower your life through the daily devotional. Wapnetwork is committed to your growth in Christ</p>
+					<!----- contact-grids ----->		
+					<div class="contact-grids">
+
+				
+							<div class="clearfix"> </div>
+						<!----- contact-form ------>
+						<div class="contact-form">
+							<form method="POST" action="/blog" th:object="${bl}" enctype="multipart/form-data">
+								<div class="contact-form-row">
+									<div>
+										<span>Title :</span>
+										<input th:field="*{title}" type="text" class="text" placeholder="Enter Blog Title" />
+									</div>
+                                                                        <div>
+										<span>Bible Text:</span>
+										<input th:field="*{bibleText}" type="text" class="text" placeholder="Enter Blog Title" />
+									</div>
+                                                           
+									
+									<div>
+										<span>Image :</span>
+										<input  type="file" class="text" name="blogImage"  />
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+								<div class="clearfix"> </div>
+								<div class="contact-form-row2">
+									<span> Blog Content :</span>
+									<textarea th:field="*{message}"  > </textarea>
+                                                                       <input type="hidden"  name="serId" th:field="*{id}"  />
+
+								</div>
+								<input type="submit" value="send">
+							</form>
+						</div>
+						<!----- contact-form ------>
+					</div>
+					<!----- contact-grids ----->
+			
+		</div>
+	</div>
+	<!-- contact -->		
+	<!-- footer -->
+	<!-- header -->
+        <div th:replace="includes :: footer"></div>	
+<!-- header -->
+	
+	<!-- footer -->
+</body>
+</html>

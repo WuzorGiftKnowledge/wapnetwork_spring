@@ -1,0 +1,83 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>	Holy Church a Religious Category Flat Bootstarp Responsive Website Template | prayer :: w3layouts</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+<
+</head>
+<body>
+<!-- header -->
+        <div th:replace="includes :: header"></div>	
+<!-- header -->
+	<!-- prayer -->
+	<div class="prayer">
+		<div class="container">
+			<h2>List of Members</h2>
+<!--			<
+-->			 <p>
+        <!--<span th:text="List of memberbers"></span>-->
+        </p>
+      
+    	<div th:if="${ not#lists.isEmpty(allmembers)}">
+          <table>
+            <tr >
+             <th>SN</th>
+             <th >First Name</th>
+              <th>Last Name</th>
+              <th>Gender</th>
+              <th>DOB</th>
+                 <th>Marital Status</th>
+              <th>Country of Residence</th>
+              <th>State of Residence</th>
+              <th>Mobile Number</th>
+                 <th>Email Address</th>
+               <th>Date Registered</th>
+                 <th>Role</th>
+                    <th>Unit</th>
+            </tr>
+<!--            <tr >
+            <td colspan="2"> No Record Ath:if="${vailable </td>
+            </tr>-->
+            
+            
+            <tr th:each="member, iterator : ${allmembers}">
+                <td th:text="${iterator.index+1}"></td>
+              <td th:text="${member.firstName}">First Name</td>
+              <td th:text="${member.lastName}">Last Name</td>
+                <td th:text="${member.gender}">Gender</td>
+                  <td th:text="${member.dateOfBirth}">DOB</td>
+                  <td th:text="${member.maritalStatus}">Marital Status</td>
+                  <td th:text="${member.country}">Country of Residence</td>
+                    <td th:text="${member.states}">State of Residence</td>
+              <td th:text="${member.phoneNumber}">Mobile Number</td>
+              <td th:text="${member.email}">Email Address</td>
+                <td th:text="${member.dateRegistered}">Date Registered</td>
+                <td th:text="${member.roles}">Role</td>
+                  <td th:text="${member.unit}">Unit</td>
+                  
+            </tr>
+          </table>
+        </div>
+	   </div>
+        </div>
+	<!-- prayer -->
+				
+	<!-- footer -->
+        <div th:replace="includes :: footer"></div>
+	<!-- footer -->
+</body>
+</html>

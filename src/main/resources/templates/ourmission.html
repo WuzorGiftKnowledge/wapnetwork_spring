@@ -1,0 +1,103 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>	Holy Church a Religious Category Flat Bootstarp Responsive Website Template | Ourmission :: w3layouts</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+<script th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+<!-- header -->
+        <div th:replace="includes :: header"></div>	
+<!-- header -->
+	<!-- mission -->
+	<div class="mission">
+	<div class="container">
+		<h2>VISION STATEMENT</h2>
+			<div class="col-md-7 mission-left">
+                            <p th:text="${AboutInfo.vision}"></p>
+<!--			ext="{About.vision}"></p>	<h6>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</h6>
+				<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like</p>
+				<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
+				<a href="single.html" class="vie">View More</a>-->
+			</div>
+			<div class="col-md-5 mission-right">
+				<img src="images/1.jpg" class="img-responsive" alt="" />
+			</div>
+			<div class="clearfix"> </div>
+			<div class="mission-bottom">
+			<h2>MISSION SATEMENTS</h2>
+			<div class="col-md-12">
+				<div class="sed-left">
+						<div class="sed-con">
+							<i class="star"></i>
+						</div>
+						<div class="sed-data">
+							<!--<h6>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed </h6>-->
+                                                         <p th:text="${AboutInfo.mission}"></p>
+							<!--<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>-->
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+<!--				<div class="col-md-6">
+				<div class="sed-left">
+						<div class="sed-con">
+							<i class="clou"></i>
+						</div>
+						<div class="sed-data">
+							<h6>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed </h6>
+							<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-6">
+				<div class="sed-left">
+						<div class="sed-con">
+							<i class="heart"></i>
+						</div>
+						<div class="sed-data">
+							<h6>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed </h6>
+							<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+				<div class="col-md-6">
+				<div class="sed-left">
+						<div class="sed-con">
+							<i class="sett"></i>
+						</div>
+						<div class="sed-data">
+							<h6>Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed </h6>
+							<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>-->
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<!-- mission -->
+				
+	<!-- footer -->
+	<div th:replace="includes :: footer"></div>
+	
+	<!-- footer -->
+</body>
+</html>

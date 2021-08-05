@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div th:fragment="header">
+            
+            <!-- header -->
+	<div class="header">
+		<div class="header-top">
+			<div class="container">
+				<div class="head-left">
+					<ul class="number">
+						<!--<li><span>Next Worship : Sunday at 10:00am</span></li>-->					
+					</ul>
+				</div>
+				<div class="head-right">
+					<ul class="number">
+						<li><a href="/contact">Need Prayer </a></li>|
+						<li><a href="/sermons">Sermons </a></li>|
+						<li><a href="/donation">Online Giving </a></li>
+                                                |<li><a href="/blog">Blogs</a></li>|
+                                                <li><a href="/login">Login</a></li>|
+                                                
+<!--						<li><a href="#">Praying Groups</a></li>|
+						<li><a href="#">Worship Services</a></li>-->
+							<div class="clearfix"> </div>						
+					</ul>
+				</div>
+					<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="header-bottom">
+			<div class="container">
+				<div class="logo" th:if="${AboutInfo.lImage eq null}">
+                                    
+                                </div>
+                            <div class="logo" th:unless="${AboutInfo.lImage eq null}">>
+                                    <a href="/"><img th:src="${AboutInfo.lImage.location}" class="img-responsive" alt="" /></a>
+                                        <!--<a href="/">WORD AND PRAYER NETWORK</a>-->
+				</div>
+                                
+				<div class="bottom-left">
+					<a href="/register">NEW HERE? GET INVOLVED</a>
+				</div>
+					<div class="clearfix"> </div>
+			</div>
+		</div>
+						
+				<div class="container">
+				<div class="head-na">
+					<div class="head-nav">
+					<span class="menu"> </span>
+						<ul class="cl-effect-15">
+								<li><a href="/" data-hover="HOME">HOME</a></li><label>|</label>
+								<li><a href="/ourmission" data-hover="OUR MISSION">OUR MISSION</a></li><label>|</label>
+								<li><a href="/gallery" data-hover="GALLERY">GALLERY</a></li><label>|</label>
+								<li><a href="/blog" data-hover="BLOG">BLOG</a></li><label>|</label>
+								<li><a href="/sermons" data-hover="SERMONS">SERMONS </a></li><label>|</label>
+								<li><a href="/testimony" data-hover="TESTIMONY">TESTIMONY</a></li><label>|</label>
+								<li><a href="/contact" data-hover="CONTACT">CONTACT</a></li>
+									<div class="clearfix"> </div>
+							</ul>
+					</div>
+					<!-- script-for-nav -->
+					<script>
+						$( "span.menu" ).click(function() {
+						  $( ".head-nav ul" ).slideToggle(300, function() {
+							// Animation complete.
+						  });
+						});
+					</script>
+				<!-- script-for-nav --> 
+				</div>
+				</div>
+				
+	</div>
+	<!-- header -->
+        
+        </div>
+        
+        
+        
+        
+        <div  th:fragment="footer">
+            <!-- footer -->
+	<div class="footer">
+	<div class="container">
+		<div class="col-md-3 loc">
+			<h3>Our Location</h3>
+			<p th:text="${AboutInfo.address}"></p>
+			<p><span>Telephone :</span> <span th:text="${AboutInfo.phonenumber}"></span></p>
+			<span>Email : </span><a th:href="${'mailto:'+AboutInfo.email}" th:text="${AboutInfo.email}">info(at)company.com</a>
+		</div>
+		<div class="col-md-3 ma">
+		<h3>Catch</h3>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12947831.742778081!2d-95.665!3d37.599999999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2sin!4v1427784587281" width="100%" height="150" frameborder="0" style="border:0"></iframe>
+		</div>
+		<div class="col-md-3 or">
+			<h3>Our Church</h3>
+			<li><a href="/about">• Our Mission</a></li>
+			<!--<li><a href="services.html">• Service</a></li>-->
+			<li><a href="/blog">• Blog</a></li>
+			<li><a href="/sermons">• Sermons</a></li>
+			<li><a href="/contact">• Contact</a></li>
+		</div>
+		<div class="col-md-3 con">
+			<h3>Get Connected</h3>
+			<ul class="social">
+						<li><a th:href="${AboutInfo.facebook}"><i class="fb"> </i>Facebook</a></li>
+						<li><a th:href="${AboutInfo.twitter}"><i class="twt"> </i>Twitter</a></li>
+						<li><a th:href="${AboutInfo.youtube}"><i class="yout"> </i>You Tube</a></li>
+						<li><a th:href="${AboutInfo.linkedin}"><i class="lik"> </i>Likedin</a></li>
+						<!-- <li><a href="#"><i class="skyp"> </i>Skype</a></li>						 -->
+							<div class="clearfix"> </div>						
+					</ul>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	</div>
+	<div class="footer-bottom">
+	<div class="container">
+		<p>Copyrights © 2015 wapnetwork All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+	</div>
+	</div>
+	
+	<!-- footer -->
+        </div>
+        
+        
+    </body>
+</html>

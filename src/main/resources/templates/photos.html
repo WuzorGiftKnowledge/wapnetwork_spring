@@ -1,0 +1,65 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>	Holy Church a Religious Category Flat Bootstarp Responsive Website Template | Photos :: w3layouts</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+<script th:src="@{/js/jquery.min.js}"></script>
+<link rel="stylesheet" href="css/swipebox.css">
+ <!------ Light Box ------>
+    <script src="js/jquery.swipebox.min.js"></script> 
+    <script type="text/javascript">
+		jQuery(function($) {
+			$(".swipebox").swipebox();
+		});
+	</script>
+    <!------ Eng Light Box ------>
+
+</head>
+<body>
+<!-- header -->
+	<div th:replace="includes :: header"></div>
+	<!-- header -->
+	<!-- photos -->
+	<div class="photos">
+	<div class="container">
+		<h2>photos</h2>
+			<div class="portfolio">
+					<div id="portfoliolist">
+						<div th:each=" img : ${images}"class="portfolio icon mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="icon" style="display: inline-block; opacity: 1;">
+						<div class="portfolio-wrapper grid_box">		
+							 <a th:href="${img.location}" class="swipebox"  th:title="${img.title}"> <img th:src="${img.location}" class="img-responsive" alt=""><span class="zoom-icon"></span> </a>
+		                </div>
+						</div>
+						
+						</div>
+				<div class="clearfix"></div>					
+				</div>
+		  <div class="clearfix"></div>
+			</div>
+
+	
+
+		</div>
+	</div>
+	<!-- sermons -->
+				
+	<!-- footer -->
+	<div th:replace="includes :: footer"></div>
+	
+	<!-- footer -->
+</body>
+</html>

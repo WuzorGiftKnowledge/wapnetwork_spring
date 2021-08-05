@@ -1,0 +1,92 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>	Holy Church a Religious Category Flat Bootstarp Responsive Website Template | prayer :: w3layouts</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+</head>
+<body>
+<!-- header -->
+        <div th:replace="includes :: header"></div>	
+<!-- header -->
+	<!-- prayer -->
+	<div class="prayer">
+		<div class="container">
+			<h2>List of Members</h2>
+<!--			<
+-->			 <p>
+        <!--<span th:text="List of memberbers"></span>-->
+        </p>
+      
+    	<div th:if="${ not#lists.isEmpty(allcontact)}">
+          <table>
+            <tr >
+             <th>SN</th>
+             <th >First Name</th>
+              <th>Last Name</th>
+                      <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Date</th>
+                  <th>Remark</th>
+       
+                 
+            </tr>
+<!--            <tr >
+            <td colspan="2"> No Record Ath:if="${vailable </td>
+            </tr>-->
+            
+            
+            <tr th:each="con, iterator : ${allcontact}">
+                <td th:text="${iterator.index+1}"></td>
+              <td th:text="${con.firstname}">First Name</td>
+              <td th:text="${con.lastname}">Last Name</td>
+               <td th:text="${con.email}">Email</td>
+              <td th:text="${con.subject}">Subject</td>
+               <td th:text="${con.message}">Message</td>
+               <td th:text="${con.dateAdded}">Date</td>
+              <!--<td th:text="${pos.approved &gt; 0? 'Unapprove' : 'Approve'}"> [pos.approved]</td>-->
+<!--                  <form th:action ="@{/updateApproved}" th:object="${}" method="post">-->
+                <td>
+                <div th:if="${con.replied eq 0}">
+<!--               <a th:href="@{/blog/ap/approve/{id}(id=${pos.id})}">Approve</a>-->
+                <p>Not Replied <span><br/><a th:href="@{/mailform/{id}(id=${con.id})}">Reply now</a></span></p>
+                  </div>
+                <div th:unless="${con.replied eq 0}">
+                 <!--<a th:href="@{/blog/ap/unapprove/{id}(id=${pos.id})}">Unapprove</a>-->
+                <p> Replied <span><br/><a @{/mailform/{id}(id=${con.id})}>Reply Again</a></span></p>
+                </div>
+              </td>
+              <!--<td th:unless="${pos.approved=0}">-->
+<!--                  <form th:action ="@{/updateApproved}" th:object="${}" method="post">
+          <a th:href="@{/blog/unapprove/{id}(id=${pos.id})}">Unapprove</a>
+                  </form>
+              </td>-->-->
+<!--                  <td th:text="${unapp.message}">Messages</td>-->
+            
+                  
+            </tr>
+          </table>
+        </div>
+	   </div>
+        </div>
+	<!-- prayer -->
+				
+	<!-- footer -->
+        <div th:replace="includes :: footer"></div>
+	<!-- footer -->
+</body>
+</html>

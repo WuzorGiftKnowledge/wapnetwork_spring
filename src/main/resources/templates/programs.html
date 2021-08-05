@@ -1,0 +1,59 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Word and Prayer Network</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+<script th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+<!-- header -->
+        <div th:replace="includes :: header"></div>	
+<!-- header -->
+	<!-- prayer -->
+	<div class="prayer">
+		<div class="container">
+			<h2>Upcoming Programs</h2>
+			<div class="prayer-top" th:each="program : ${programs}">
+				<div class="col-md-4 prayer-left">
+					<img th:src="${program.pImage.location}" class="img-responsive" alt="" />
+				</div>
+				<div class="col-md-8 prayer-right">
+					<h2 th:text="${program.title}"></h2>
+                                        <h5 > Theme: <span th:text="${program.theme}"></span></h5>
+                                        <h5 > speaker: <span th:text="${program.speakers}"></span></h5>
+
+                                        <h5> Date: <span th:text="${program.programDate}" ></span></h5>
+                                          <h5>Time :<span th:text="${program.programTime}" ></span></h5>
+                                          <h5>Venue: <span th:text="${program.venue}" ></span></h5>
+					<!--<h6>Let us therefore come boldly unto the throne of grace, that we may obtain mercy, and find grace to help in time of need. God's grace and mercy has been made available for you.</h6>-->
+				
+                                        <h5> Description :<span th:text="${program.description}"></span></h5>
+                                        <span th:text="${program.datePosted}" ></span>
+                                        <h5><a href="single.html" class="vie">View more</a></h5>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		
+		</div>
+	</div>
+	<!-- prayer -->
+				
+	<!-- footer -->
+        <div th:replace="includes :: footer"></div>
+	<!-- footer -->
+</body>
+</html>

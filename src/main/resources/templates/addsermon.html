@@ -1,0 +1,92 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>	Holy Church a Religious Category Flat Bootstarp Responsive Website Template | Contact :: w3layouts</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+<script th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+<!-- header -->
+	<!-- header -->
+       <div th:replace="includes :: header"></div>	
+	<!-- header -->
+	<!-- contact -->
+	<div class="contact">
+	<div class="container">
+		<h2>Add Sermon</h2>
+
+					<div class="contact-head text-center">
+						<p>Where the word of the king is, there is power. Teachings of our various meeings are posted here. feel free toreadd, download an share.</p>
+					<!----- contact-grids ----->		
+					<div class="contact-grids">
+
+				
+							<div class="clearfix"> </div>
+						<!----- contact-form ------>
+						<div class="contact-form">
+							<form method="POST" action="/sermon" th:object="${ser}" enctype="multipart/form-data">
+								<div class="contact-form-row">
+									<div>
+										<span>Program :</span>
+										<input th:field="*{program}" type="text" class="text" placeholder="Enter Program Name" />
+									</div>
+                                                                    <div>
+										<span>Speaker :</span>
+										<input th:field="*{speaker}" type="text" class="text" placeholder="Enter Speakers Name" />
+									</div>
+                                                           
+                                                                    <div>
+										<span>Title :</span>
+										<input th:field="*{title}" type="text" class="text" placeholder="Enter Sermon Topic" />
+									</div>
+                                                           
+									<div>
+										<span>Bible Text :</span>
+										<input th:field="*{bibleText}" type="text" class="text" placeholder="Enter Bible Text" />
+									</div>
+                                                           
+									<div>
+										<span>Image :</span>
+										<input type="file" class="text" name="sermonImage"  />
+                                                                                <input type="hidden"  name="serId" th:field="*{id}"  />
+                                                                              <!--<img th:src="${ser.bImage.location}" class="img-responsive" alt="" />-->
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+								<div class="clearfix"> </div>
+								<div class="contact-form-row2">
+									<span> Sermon Content :</span>
+									<textarea th:field="*{message}"  > </textarea>
+								</div>
+								<input type="submit" value="send">
+							</form>
+						</div>
+						<!----- contact-form ------>
+					</div>
+					<!----- contact-grids ----->
+			
+		</div>
+	</div>
+	<!-- contact -->		
+	<!-- footer -->
+	<!-- header -->
+        <div th:replace="includes :: footer"></div>	
+<!-- header -->
+	
+	<!-- footer -->
+</body>
+</html>

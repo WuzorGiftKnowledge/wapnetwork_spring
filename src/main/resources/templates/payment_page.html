@@ -1,0 +1,86 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>	Holy Church a Religious Category Flat Bootstarp Responsive Website Template | Contact :: w3layouts</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+<script th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+<!-- header -->
+	
+        <div th:replace="includes :: header"></div>	
+<!-- header -->
+	
+	<!-- contact -->
+	<div class="contact">
+	<div class="container">
+		<h2>Thank you for your donation, proceed to payment page</h2>
+		<h3 th:text="${'Amount: '+ donation.Amount}" ></h3>
+		<h3 th:text="${'Fullname : '+ donation.firstName + ' '+ donation.lastName }" ></h3>
+		<form id="paymentForm">
+			<div class="form-group">
+			  <input type="hidden" th:value="${donation.email}" id="email-address" required />
+			</div>
+			<div class="form-group">
+			  <input type="hidden" th:value="${donation.Amount}"  id="amount" required />
+			</div>
+			<div class="form-group">
+			  <input type="hidden" th:value="${donation.firstName}" id="first-name" />
+			</div>
+			<div class="form-group">
+			  <input type="hidden" th:value="${donation.lastName}" id="last-name" />
+			</div>
+			<div class="form-submit">
+			  <button type="submit" onclick="payWithPaystack()"> Pay </button>
+			</div>
+		  </form>
+		  <script src="https://js.paystack.co/v1/inline.js"></script> 
+		</div>
+	</div>
+
+	<script>
+
+const paymentForm = document.getElementById('paymentForm');
+paymentForm.addEventListener("submit", payWithPaystack, false);
+function payWithPaystack(e) {
+  e.preventDefault();
+  let handler = PaystackPop.setup({
+    key: 'pk_test_be8f4ea0ea4c4d8f28019a15bfab50a5635a1348', // Replace with your public key
+    email: document.getElementById("email-address").value,
+    amount: document.getElementById("amount").value * 100,
+    ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+    // label: "Optional string that replaces customer email"
+    onClose: function(){
+      alert('Window closed.');
+    },
+    callback: function(response){
+      let message = 'Payment complete! Reference: ' + response.reference;
+      alert(message);
+    }
+  });
+  handler.openIframe();
+}
+
+	</script>
+	<!-- contact -->		
+	<!-- footer -->
+	
+        <div th:replace="includes :: footer"></div>	
+
+	<!-- footer -->
+</body>
+</html>

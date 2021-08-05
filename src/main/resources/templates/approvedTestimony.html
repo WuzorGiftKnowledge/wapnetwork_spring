@@ -1,0 +1,82 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>	Holy Church a Religious Category Flat Bootstarp Responsive Website Template | prayer :: w3layouts</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+<
+</head>
+<body>
+<!-- header -->
+        <div th:replace="includes :: header"></div>	
+<!-- header -->
+	<!-- prayer -->
+	<div class="prayer">
+		<div class="container">
+			<h2>Approved Testimonies</h2>
+<!--			<
+-->			 <p>
+        <!--<span th:text="List of memberbers"></span>-->
+        </p>
+      
+    		<div th:if="${ not#lists.isEmpty(approvedTestimony)}">
+          <table>
+            <tr >
+             <th>SN</th>
+             <th >Subject</th>
+              <th>Email</th>
+              <th>Phone</th>
+                      <th>Date Registered</th>
+                <th>Message</th>
+                <th>Status</th>
+       
+                 
+            </tr>
+<!--            <tr >
+            <td colspan="2"> No Record Ath:if="${vailable </td>
+            </tr>-->
+            
+            
+            <tr th:each="unapp, iterator : ${approvedTestimony}">
+                <td th:text="${iterator.index+1}"></td>
+              <td th:text="${unapp.subject}">Subject</td>
+              <td th:text="${unapp.email}">Email>
+              <td th:text="${unapp.phone}">Phone</td>
+              <td th:text="${unapp.dateAdded}">Date Registered</td>
+              <td th:text="${unapp.message}">Message</td>
+              <td >
+                  
+                  <a th:href="@{/testimony/unapprove/{id}(id=${unapp.id})}">Unapprove</a>
+
+<!--                  <form th:action ="@{/updateApproved}" th:object="${}" method="post">-->
+                      <!--<button type=":submit">Approve</button>-->
+                  <!--</form>-->
+              </td>
+<!--                  <td th:text="${unapp.message}">Messages</td>-->
+            
+                  
+            </tr>
+          </table>
+        </div>
+	   </div>
+        </div>
+	<!-- prayer -->
+				
+	<!-- footer -->
+        <div th:replace="includes :: footer"></div>
+	<!-- footer -->
+</body>
+</html>

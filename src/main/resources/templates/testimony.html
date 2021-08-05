@@ -1,0 +1,129 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>	Holy Church a Religious Category Flat Bootstarp Responsive Website Template | Contact :: w3layouts</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+<script th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+<!-- header -->
+	<!-- header -->
+        <div th:replace="includes :: header"></div>	
+<!-- header -->
+	<!-- header -->
+	<!-- contact -->
+	<div class="contact">
+	<div class="container">
+		<h2>From our Testimony Box</h2>
+		<h3>We overcame by the word of our testimony</h3>
+			<!-- slider -->
+	<div class="container">
+		<div class="confess-top">
+				<section class="slider">
+							<div class="flexslider">
+								<ul class="slides">
+									<li th:each="testimony : ${testimonies}"> 
+										<div class="confess">
+											
+											<div class="col-md-12 confess-right">
+												<h2 th:text="${testimony.subject +' : ' + testimony.firstName + ' '+ testimony.lastName} ">Financial Breakthrough : Tom Eze</h2>
+												<p th:text="${testimony.message}">Ut orci turpis, viverra vitae porta sodales, consequat quis purus. Nam sit amet quam vitae metus dapibus condimentum sit amet ut mauris. Etiam ligula mauris, semper eu condimentum ac, ultricies a velit. Ut orci turpis, viverra vitae porta sodales, consequat.</p>
+												<p th:text="${testimony.dateAdded}" class="pull-right"></p>
+											</div>										
+												<div class="clearfix"> </div>
+										</div>
+									</li>
+									
+									
+									
+									<div class="clearfix"> </div>
+								</ul>
+							</div>
+						</section>
+					</div>
+					</div>
+						<!-- FlexSlider -->
+								  <script defer src="js/jquery.flexslider.js"></script>
+								  <script type="text/javascript">
+									$(function(){
+									  SyntaxHighlighter.all();
+									});
+									$(window).load(function(){
+									  $('.flexslider').flexslider({
+										animation: "slide",
+										start: function(slider){
+										  $('body').removeClass('loading');
+										}
+									  });
+									});
+								  </script>
+							<!-- FlexSlider -->
+		<!-- slider -->
+		
+							<div class="clearfix"> </div>
+							
+							<!----- contact-form ------>
+						<div class="contact-form">
+							<h2 style="margin-top: 20px;;">Share Your Testimony</h2>
+
+							<form method="POST" action="/testimony" th:object="${tes}">
+								<div class="contact-form-row">
+									<div>
+										<span>Firt Name :</span>
+										<input th:field="*{FirstName}" type="text" class="text" placeholder="First Name" />
+									</div>
+                                                                    <div>
+										<span>Last Name :</span>
+										<input th:field="*{LastName}" type="text" class="text" placeholder="Last Name" />
+									</div>
+									<div>
+										<span>Email :</span>
+										<input th:field="*{Email}" type="text" class="text" placeholder="Email" />
+									</div>
+                                                                            <div>
+										<span>Phone Number :</span>
+                                                                                <input th:field="*{phone}" type="text" class="text" placeholder="Phone Number" />
+									</div>
+									<div>
+										<span>Subject :</span>
+                                                                                <input th:field="*{Subject}" type="text" class="text" placeholder="Write your testimony here" />
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+								<div class="clearfix"> </div>
+								<div class="contact-form-row2">
+									<span>Message :</span>
+									<textarea th:field="*{message}"  > </textarea>
+								</div>
+								<input type="submit" value="send">
+							</form>
+						</div>
+						<!----- contact-form ------>
+					</div>
+					<!----- contact-grids ----->
+			
+		</div>
+	</div>
+	<!-- contact -->		
+	<!-- footer -->
+	<!-- header -->
+        <div th:replace="includes :: footer"></div>	
+<!-- header -->
+	
+	<!-- footer -->
+</body>
+</html>
