@@ -5,14 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class DemoApplication {
-
 /**
-*
-* @param args
-*/ 
+ * 
+ * @param args 
+ */
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
 
-	public static void ma(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
-
+    }
 }
