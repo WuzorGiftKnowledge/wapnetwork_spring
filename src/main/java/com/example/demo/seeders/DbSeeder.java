@@ -110,7 +110,7 @@ String sql ="SELECT authority_name FROM authorities WHERE authority_name IN ('RO
 private void seedMemberAuthoriyTable() {
    
 
-  String sql = "SELECT email FROM members U WHERE U.email = \"test@test.com\" LIMIT 1";
+  String sql = "SELECT email FROM members  WHERE email = 'test@test.com' ";
         List<Members> a = jdbcTemplate.query(sql, (resultSet, rowNum) -> null);
         if(a == null || a.size() <= 0) {
              Members user = new Members();
