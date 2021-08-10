@@ -92,8 +92,8 @@ private void seedMembersTable() {
 
 private void seedAuthoriyTable() {
     String an1="ROLE_ADMIN", an2="ROLE_EXECUTIVE", an3="ROLE_WORKER",an4="ROLE_MEMBER", an5="ROLE_FINSEC";
-
-String sql = "SELECT authority_name FROM authorities c Where c.authority_name IN(\""+an1+"\",\""+an2+"\",\""+an3+"\",\""+an4+"\",\""+an5+"\")";
+String sql ="SELECT * FROM Employees WHERE name IN ('ROLE_ADMIN', 'ROLE_EXECUTIVE', 'ROLE_WORKER','ROLE_MEMBER','ROLE_FINSEC')";
+//String sql = "SELECT authority_name FROM authorities c Where c.authority_name IN(\""+an1+"\",\""+an2+"\",\""+an3+"\",\""+an4+"\",\""+an5+"\")";
         List<Authorities> a = jdbcTemplate.query(sql, (resultSet, rowNum) -> null);
         if(a == null || a.size() <= 0) {
            Authorities auth = new Authorities("ROLE_ADMIN");
