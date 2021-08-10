@@ -61,7 +61,7 @@ public void seed(ContextRefreshedEvent event) {
 
 
 private void seedMembersTable() {
-        String sql = "SELECT email FROM members U WHERE U.email = \"test@test.com\" LIMIT 1";
+         String sql = "SELECT email FROM members  WHERE email = 'test@test.com' ";
         List<Members> u = jdbcTemplate.query(sql, (resultSet, rowNum) -> null);
         if(u == null || u.size() <= 0) {
              Members user = new Members();
