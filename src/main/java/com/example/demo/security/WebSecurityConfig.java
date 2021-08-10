@@ -52,14 +52,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("**/delete**").hasRole("PRESIDENT")
-                
-                 .antMatchers("**/edit/**", "**/approve/*").hasAnyRole("ADMIN","EXECUTIVE")
-            .antMatchers("**/add*").hasAnyRole("WORKER", "EDITOR", "PRESIDENT", "EXECUTIVE")
-            .antMatchers("/program/**").hasAnyAuthority("WORKER", "EDITOR")
-            .antMatchers("/blog/*").hasAnyAuthority("WORKER", "MEMBER")
-            .antMatchers("/register/**").permitAll()
-               .antMatchers("/","blog","testimony","programs").permitAll()
+//                .antMatchers("**/delete**").hasRole("PRESIDENT")
+//                
+//                 .antMatchers("**/edit/**", "**/approve/*").hasAnyRole("ADMIN","EXECUTIVE")
+//            .antMatchers("**/add*").hasAnyRole("WORKER", "EDITOR", "PRESIDENT", "EXECUTIVE")
+//            .antMatchers("/program/**").hasAnyAuthority("WORKER", "EDITOR")
+//            .antMatchers("/blog/*").hasAnyAuthority("WORKER", "MEMBER")
+//            .antMatchers("/register/**").permitAll()
+//               .antMatchers("/","blog","testimony","programs").permitAll()
              .antMatchers("/login**").permitAll()   
           .anyRequest().permitAll()
             .and()
