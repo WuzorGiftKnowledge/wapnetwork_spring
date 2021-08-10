@@ -51,8 +51,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
-                .authorizeRequests()
+               
+                .authorizeRequests().anyRequest().permitAll()
 //                .antMatchers("**/delete**").hasRole("PRESIDENT")
 //                
 //                 .antMatchers("**/edit/**", "**/approve/*").hasAnyRole("ADMIN","EXECUTIVE")
@@ -61,17 +61,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //            .antMatchers("/blog/*").hasAnyAuthority("WORKER", "MEMBER")
 //            .antMatchers("/register/**").permitAll()
 //               .antMatchers("/","blog","testimony","programs").permitAll()
-             .antMatchers("/login**").permitAll()   
-          .anyRequest().permitAll()
+             .and()
+                .formLogin()  
+          
             .and()
+             .httpBasic();   
                 
                 
-                
-                .formLogin()
-     .loginPage("/login")
-      .loginProcessingUrl("/login")
-      .defaultSuccessUrl("/blog",true)
-      .failureUrl("/login?error=true").permitAll();
+//                .formLogin()
+//     .loginPage("/login")
+//      .loginProcessingUrl("/login")
+//      .defaultSuccessUrl("/blog",true)
+//      .failureUrl("/login?error=true").permitAll();
 }
                 
                 
