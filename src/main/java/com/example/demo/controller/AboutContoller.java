@@ -87,8 +87,14 @@ public class AboutContoller {
    
        @ModelAttribute
     public void aboutSite(Model model){
+       About ab= aboutService.getAbout(1L);
+       if (ab !=null){
     model.addAttribute("AboutInfo", aboutService.getAbout(1L));
-    
+    }else{
+      ab.setMission("");
+      ab.setVision("");
+       model.addAttribute("AboutInfo", aboutService.getAbout(1L));
+       }
     
     }
 }

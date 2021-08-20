@@ -40,10 +40,10 @@ and open the template in the editor.
 		</div>
 		<div class="header-bottom">
 			<div class="container">
-				<div class="logo" th:if="${AboutInfo.lImage eq null}">
-                                    
+				<div class="logo" th:if="${AboutInfo eq null}">
+                                <a href="/"><img th:src="@{/images/logo.jpg}" class="img-responsive" alt="" /></a>
                                 </div>
-                            <div class="logo" th:unless="${AboutInfo.lImage eq null}">>
+                            <div class="logo" th:unless="${AboutInfo eq null}">
                                     <a href="/"><img th:src="${AboutInfo.lImage.location}" class="img-responsive" alt="" /></a>
                                         <!--<a href="/">WORD AND PRAYER NETWORK</a>-->
 				</div>
@@ -94,9 +94,11 @@ and open the template in the editor.
             <!-- footer -->
 	<div class="footer">
 	<div class="container">
-		<div class="col-md-3 loc">
+		<div class="col-md-3 loc" th:if="${AboutInfo != null}">
 			<h3>Our Location</h3>
-			<p th:text="${AboutInfo.address}"></p>
+			
+                        <p th:text="${AboutInfo.address}"></p>
+                        
 			<p><span>Telephone :</span> <span th:text="${AboutInfo.phonenumber}"></span></p>
 			<span>Email : </span><a th:href="${'mailto:'+AboutInfo.email}" th:text="${AboutInfo.email}">info(at)company.com</a>
 		</div>
@@ -112,7 +114,7 @@ and open the template in the editor.
 			<li><a href="/sermons">• Sermons</a></li>
 			<li><a href="/contact">• Contact</a></li>
 		</div>
-		<div class="col-md-3 con">
+		<div class="col-md-3 con" th:if="${AboutInfo != null}">
 			<h3>Get Connected</h3>
 			<ul class="social">
 						<li><a th:href="${AboutInfo.facebook}"><i class="fb"> </i>Facebook</a></li>
