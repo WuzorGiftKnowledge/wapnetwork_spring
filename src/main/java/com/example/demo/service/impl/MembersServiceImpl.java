@@ -16,7 +16,7 @@ import com.example.demo.utils.PasswordEncode;
 import java.util.HashSet;
 
 import java.util.Set;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -36,17 +36,18 @@ public class MembersServiceImpl implements MembersService{
  EmailService emailService;
   @Autowired
  AuthorityService authorityService;
- BCryptPasswordEncoder bCryptPasswordEncoder = PasswordEncode.encode();
+// BCryptPasswordEncoder bCryptPasswordEncoder = PasswordEncode.encode();
  
  @Autowired
    AuthorityRepository authorityRepository;
 
     @Override
     public Members addMembers(Members mem) {
-        String encoded=new BCryptPasswordEncoder().encode(mem.getPassword());
-        
+       // String encoded=new BCryptPasswordEncoder().encode(mem.getPassword());
+         String encoded=mem.getPassword();
         mem.setPassword(encoded);
-        encoded=new BCryptPasswordEncoder().encode(mem.getConfirmPassword());
+      //  encoded=new BCryptPasswordEncoder().encode(mem.getConfirmPassword());
+       encoded=mem.getConfirmPassword();
          mem.setConfirmPassword(encoded);
 //        Set<Authorities> autho = new HashSet<>();
 //        autho.add(authorityRepository.findByAuthorityName("MEMBER"));

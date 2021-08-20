@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 /**
@@ -68,8 +68,10 @@ private void seedMembersTable() {
              user.setFirstName("president");
              user.setLastName("admin");
              user.setEmail("test@test.com");
-             user.setPassword(new BCryptPasswordEncoder().encode("test123"));
-                user.setConfirmPassword(new BCryptPasswordEncoder().encode("test123"));
+          //   user.setPassword(new BCryptPasswordEncoder().encode("test123"));
+           user.setPassword("test123");
+               // user.setConfirmPassword(new BCryptPasswordEncoder().encode("test123"));
+                user.setConfirmPassword("test123");
            
              user.setVerified(true);
              user.setCountry("Nigeria");
