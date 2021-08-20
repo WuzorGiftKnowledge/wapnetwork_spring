@@ -29,7 +29,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  *
  * @author lynda
  */
-public class AboutContoller {
+public class AboutController {
   @Autowired
      private AboutService aboutService;
     
