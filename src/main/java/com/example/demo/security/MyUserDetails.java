@@ -64,7 +64,7 @@
 //    }
 // 
 //    @Override
-//    public boolean isEnabled() {
+//////    public boolean isEnabled() {
 //        return user.isVerified();
 //    }
 // 
