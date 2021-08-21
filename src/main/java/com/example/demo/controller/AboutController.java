@@ -49,8 +49,8 @@ public class AboutController {
     
      @GetMapping("/about")
     public String about(Model model) {
-        About a= aboutService.getAbout();
-        model.addAttribute("ab",a);
+      //  About a= aboutService.getAbout();
+        model.addAttribute("ab",aboutService.getAbout());
         return "about";
 }
     @PostMapping("/about")
