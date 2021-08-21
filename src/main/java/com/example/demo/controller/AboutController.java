@@ -42,7 +42,7 @@ public class AboutController {
         @GetMapping("/ourmission")
     public String ourmission(Model model){
         model.addAttribute("About", aboutService.getAbout(1L));
-        return "/ourmission";
+        return "ourmission";
     }
     
     
@@ -51,7 +51,7 @@ public class AboutController {
     public String about(Model model) {
         About a= aboutService.getAbout(1L);
         model.addAttribute("ab",a);
-        return "/about";
+        return "about";
 }
     @PostMapping("/about")
    public String saveAbout(@ModelAttribute About ab, Model model, @RequestParam ("logo") MultipartFile logo ){
