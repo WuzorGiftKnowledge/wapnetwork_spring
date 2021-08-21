@@ -15,6 +15,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  *
  * @author lynda
  */
+@Controller
 public class AboutController {
   @Autowired
      private AboutService aboutService;
@@ -40,7 +42,7 @@ public class AboutController {
         @GetMapping("/ourmission")
     public String ourmission(Model model){
         model.addAttribute("About", aboutService.getAbout(1L));
-        return "ourmission";
+        return "/ourmission";
     }
     
     
@@ -49,7 +51,7 @@ public class AboutController {
     public String about(Model model) {
         About a= aboutService.getAbout(1L);
         model.addAttribute("ab",a);
-        return "about";
+        return "/about";
 }
     @PostMapping("/about")
    public String saveAbout(@ModelAttribute About ab, Model model, @RequestParam ("logo") MultipartFile logo ){
@@ -90,11 +92,6 @@ public class AboutController {
        About ab= aboutService.getAbout(1L);
        if (ab !=null){
     model.addAttribute("AboutInfo", aboutService.getAbout(1L));
-    }else{
-      ab.setMission("");
-      ab.setVision("");
-       model.addAttribute("AboutInfo", aboutService.getAbout(1L));
-       }
-    
+    }
     }
 }

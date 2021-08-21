@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Word and Prayer Network</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -31,7 +31,8 @@ and open the template in the editor.
                                                 <li><a href="/login">Login</a></li>|
                                                 
 <!--						<li><a href="#">Praying Groups</a></li>|
-						<li><a href="#">Worship Services</a></li>-->
+						<li><a href="#">Worship Services</a></li> 
+-->
 							<div class="clearfix"> </div>						
 					</ul>
 				</div>
@@ -41,7 +42,7 @@ and open the template in the editor.
 		<div class="header-bottom">
 			<div class="container">
 				<div class="logo" th:if="${AboutInfo eq null}">
-                                <a href="/"><img th:src="@{/images/logo.jpg}" class="img-responsive" alt="" /></a>
+                                      <a href="/"><img th:src="@{/images/logo.jpg}" class="img-responsive" alt="" /></a>
                                 </div>
                             <div class="logo" th:unless="${AboutInfo eq null}">
                                     <a href="/"><img th:src="${AboutInfo.lImage.location}" class="img-responsive" alt="" /></a>
@@ -96,9 +97,7 @@ and open the template in the editor.
 	<div class="container">
 		<div class="col-md-3 loc" th:if="${AboutInfo != null}">
 			<h3>Our Location</h3>
-			
-                        <p th:text="${AboutInfo.address}"></p>
-                        
+			<p th:text="${AboutInfo.address}"></p>
 			<p><span>Telephone :</span> <span th:text="${AboutInfo.phonenumber}"></span></p>
 			<span>Email : </span><a th:href="${'mailto:'+AboutInfo.email}" th:text="${AboutInfo.email}">info(at)company.com</a>
 		</div>
@@ -114,9 +113,9 @@ and open the template in the editor.
 			<li><a href="/sermons">• Sermons</a></li>
 			<li><a href="/contact">• Contact</a></li>
 		</div>
-		<div class="col-md-3 con" th:if="${AboutInfo != null}">
-			<h3>Get Connected</h3>
-			<ul class="social">
+		<div class="col-md-3 con">
+			<h3 >Get Connected</h3>
+			<ul class="social" th:if="${AboutInfo != null}">
 						<li><a th:href="${AboutInfo.facebook}"><i class="fb"> </i>Facebook</a></li>
 						<li><a th:href="${AboutInfo.twitter}"><i class="twt"> </i>Twitter</a></li>
 						<li><a th:href="${AboutInfo.youtube}"><i class="yout"> </i>You Tube</a></li>
@@ -130,7 +129,7 @@ and open the template in the editor.
 	</div>
 	<div class="footer-bottom">
 	<div class="container">
-		<p>Copyrights © 2015 wapnetwork All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+		<p>Copyrights © 2021 wapnetwork All rights reserved | </p>
 	</div>
 	</div>
 	

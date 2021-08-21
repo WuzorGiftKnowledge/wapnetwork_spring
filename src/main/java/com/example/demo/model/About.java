@@ -66,6 +66,7 @@ public class About implements Serializable {
 
     @Column
     private String address;
+    
      @OneToOne
      private Image lImage;
     

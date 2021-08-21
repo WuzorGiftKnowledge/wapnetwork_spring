@@ -17,6 +17,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +31,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
  *
  * @author lynda
  */
+
+@Controller
 public class MembersController {
       @Value("${files_uploading_directory}")
     public String upload_directory;
