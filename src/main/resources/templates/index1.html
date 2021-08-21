@@ -25,6 +25,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- header -->
 	<!-- slider -->
 	<div class="container">
+	<div class="confess-top">
+			<section class="slider">
+						<div class="flexslider">
+							<ul class="slides">
+								<li th:each="testimony : ${testimonies}"> 
+									<div class="confess">
+										
+										<div class="col-md-12 confess-right">
+											<h2 th:text="${testimony.subject +' : ' + testimony.firstName + ' '+ testimony.lastName} ">Financial Breakthrough : Tom Eze</h2>
+											<p th:text="${#strings.abbreviate(testimony.message,200)}">Ut orci turpis, viverra vitae porta sodales, consequat quis purus. Nam sit amet quam vitae metus dapibus condimentum sit amet ut mauris. Etiam ligula mauris, semper eu condimentum ac, ultricies a velit. Ut orci turpis, viverra vitae porta sodales, consequat.</p>
+											<a th:href="@{/testimony/{id}(id=${testimony.id})}" class="vie">Read More</a>
+
+											<p th:text="${testimony.dateAdded}" class="pull-right"></p>
+										</div>										
+											<div class="clearfix"> </div>
+									</div>
+								</li>
+								
+								
+								
+								<div class="clearfix"> </div>
+							</ul>
+						</div>
+					</section>
+				</div>
+				</div>
+					<!-- FlexSlider -->
+							  <script defer src="js/jquery.flexslider.js"></script>
+							  <script type="text/javascript">
+								$(function(){
+								  SyntaxHighlighter.all();
+								});
+								$(window).load(function(){
+								  $('.flexslider').flexslider({
+									animation: "slide",
+									start: function(slider){
+									  $('body').removeClass('loading');
+									}
+								  });
+								});
+							  </script>
+						<!-- FlexSlider -->
 	<!-- slider -->
 	<div class="rooted">
 	<div class="container">
@@ -32,53 +74,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="grndd">
 			<h3>Rooted & Grounded in Love</h3>
 			<h6>Do You Know Jesus Christ From Nazareth?</h6>
-			<p>We preach Jesus Everywhere.</p>
+			<p>Curabitur quis arcu sapien, nec pharetra nisi. Aenean porttitor diam id lectus pharetra nec accumsan risus consequat. In gravida dapibus dolor, ut porta felis cursus vel. Integer a tellus nulla. Integer eget orci a elit sollicitudin dapibus eu non elit. Vivamus cursus sem vitae nunc mattis tincidunt praesent ac nisi mi. Aenean porttitor diam id lectus pharetra nec accumsan risus consequat. In gravida dapibus dolor, ut porta felis cursus vel integer a tellus nulla.</p>
 			<a href="single.html" class="vie">View More</a>
 		</div>
 			<div class="worsh">
-				<h3>Worship Photos </h3>
-				<p> All men seek after God, but God seeks after true worshipers</p>
+				<h3>Worship Photos & Videos</h3>
+				<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin sed leo justo, sit amet venenatis tellus. Ut vehicula pharetra aliquet. Pellentesque ut nisi ac quam varius posuere id id velit. Vestibulum ut nulla ligula. Donec vel leo sed erat ullamcorper laoreet non nec quam. </p>
 			<div class="recent">
 			<ul id="flexiselDemo3">
 								<li>
 									<div class="team1">
-										
-                                                                      <!--      <iframe src="https://player.vimeo.com/video/38880155" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-									-->
-                                                                        </div>
+										<iframe src="https://player.vimeo.com/video/38880155" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									</div>
 								</li>
 								<li>
 									<div class="team1">
-                                                                         <a href="/"><img th:src="@{/images/wap/kogiCrusade.png}"  alt="" /></a>
-									  <!--   
-                                                                            <iframe src="https://player.vimeo.com/video/19764899?color=fffef8&title=0&byline=0&portrait=0" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-									-->
-                                                                        </div>
+										<iframe src="https://player.vimeo.com/video/19764899?color=fffef8&title=0&byline=0&portrait=0" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									</div>
 								</li>
 								<li>
 									<div class="team1">
-                                                                            
-                                                                          <a href="/"><img th:src="@{/images/wap/Prison.png}"  alt="" /></a>
-                                                                            <!--    
 										<iframe src="https://player.vimeo.com/video/17599940" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-									-->
-                                                                        </div>
+									</div>
 								</li>
 								<li>
 									<div class="team1">
-									 <a href="/"><img th:src="@{/images/wap/Occupy.png}"  alt="" /></a>
-                                                                           <!--    
-										<iframe src="https://player.vimeo.com/video/17599940" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-									-->
-                                                                        </div>
+										<iframe src="https://player.vimeo.com/video/1871839" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									</div>
 								</li>
 								<li>
 									<div class="team1">
-                                                                          <a href="/"><img th:src="@{/images/wap/oyocrusade.png}" alt="" /></a>
-									  <!--    
-										<iframe src="https://player.vimeo.com/video/17599940" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-									-->
-                                                                        </div></li>
+										<iframe src="https://player.vimeo.com/video/19764899?color=fffef8&title=0&byline=0&portrait=0" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									</div></li>
 							 </ul>
 						
 						 <script type="text/javascript">
@@ -114,8 +141,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<a href="single.html" class="vie">View All</a>
 <!-- recent -->
-
+<div class="logo" th:if="${AboutInfo != null}">
                 <p th:text="${AboutInfo.mission}"></p>
+</div>
 			</div>
 		</div>
 		<div class="col-md-3 rooted-right">
