@@ -15,5 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface AboutRepository extends CrudRepository<About, Long> {
-    
+  About  findTopByOrderByIdDesc();
 }

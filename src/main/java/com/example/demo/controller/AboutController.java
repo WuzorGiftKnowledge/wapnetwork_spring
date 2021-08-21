@@ -41,7 +41,7 @@ public class AboutController {
     
         @GetMapping("/ourmission")
     public String ourmission(Model model){
-        model.addAttribute("About", aboutService.getAbout(1L));
+        model.addAttribute("About", aboutService.getAbout());
         return "ourmission";
     }
     
@@ -49,7 +49,7 @@ public class AboutController {
     
      @GetMapping("/about")
     public String about(Model model) {
-        About a= aboutService.getAbout(1L);
+        About a= aboutService.getAbout();
         model.addAttribute("ab",a);
         return "about";
 }
@@ -89,9 +89,9 @@ public class AboutController {
    
        @ModelAttribute
     public void aboutSite(Model model){
-       About ab= aboutService.getAbout(1L);
+       About ab= aboutService.getAbout();
        if (ab !=null){
-    model.addAttribute("AboutInfo", aboutService.getAbout(1L));
+    model.addAttribute("AboutInfo", aboutService.getAbout());
     }
     }
 }

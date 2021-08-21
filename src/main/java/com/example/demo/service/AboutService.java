@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public interface AboutService {
     
     About addAbout(About ab);
-    About getAbout(Long id);
+    About getAbout();
     List<About> getAllAbout();
      About updateAbout(About ab);
      void deleteAbout(Long id);

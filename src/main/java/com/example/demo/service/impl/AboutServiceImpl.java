@@ -35,8 +35,9 @@ private AboutRepository aboutRepository;
     }
 
     @Override
-    public About getAbout(Long id) {
-           About ab = aboutRepository.findById(id).orElse(new About());
+    public About getAbout() {
+           About ab = aboutRepository.findTopByOrderByIdDesc();
+                  // .orElse(new About());
            return ab;
     }
 
