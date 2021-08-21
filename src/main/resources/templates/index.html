@@ -43,41 +43,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<div class="team1">
 										
-                                                                      <!--      <iframe src="https://player.vimeo.com/video/38880155" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-									-->
+                                                                           <iframe src="https://player.vimeo.com/video/38880155" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									
                                                                         </div>
 								</li>
 								<li>
 									<div class="team1">
-                                                                         <a href="/"><img th:src="@{/images/wap/kogiCrusade.png}"  alt="" /></a>
-									  <!--   
-                                                                            <iframe src="https://player.vimeo.com/video/19764899?color=fffef8&title=0&byline=0&portrait=0" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-									-->
+                                                                       <!--  <a href="/"><img th:src="@{/images/wap/kogiCrusade.png}"  alt="" /></a>
+									  -->   
+                                                                            <iframe src="@{/images/wap/kogiCrusade.png" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									
                                                                         </div>
 								</li>
 								<li>
 									<div class="team1">
-                                                                            
+                                                                          <!--  
                                                                           <a href="/"><img th:src="@{/images/wap/Prison.png}"  alt="" /></a>
-                                                                            <!--    
-										<iframe src="https://player.vimeo.com/video/17599940" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-									-->
+                                                                            -->   
+										<iframe src="/images/wap/Prison.png"" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									
                                                                         </div>
 								</li>
 								<li>
 									<div class="team1">
-									 <a href="/"><img th:src="@{/images/wap/Occupy.png}"  alt="" /></a>
-                                                                           <!--    
-										<iframe src="https://player.vimeo.com/video/17599940" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-									-->
+								 <!-- 	 <a href="/"><img th:src="@{/images/wap/Occupy.png}"  alt="" /></a>
+                                                                     -->      
+										<iframe src="/images/wap/Occupy.png" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									
                                                                         </div>
 								</li>
 								<li>
 									<div class="team1">
-                                                                          <a href="/"><img th:src="@{/images/wap/oyocrusade.png}" alt="" /></a>
-									  <!--    
-										<iframe src="https://player.vimeo.com/video/17599940" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-									-->
+                                                                       <!--    <a href="/"><img th:src="@{/images/wap/oyocrusade.png}" alt="" /></a>-->
+									     
+										<iframe src="/images/wap/oyocrusade.png" width="100%" height="130" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+									
                                                                         </div></li>
 							 </ul>
 						
@@ -114,18 +114,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<a href="single.html" class="vie">View All</a>
 <!-- recent -->
-
+<div th:if="${AboutInfo != null}">
                 <p th:text="${AboutInfo.mission}"></p>
+</div>
 			</div>
 		</div>
 		<div class="col-md-3 rooted-right">
 			<div class="wor">
 				<h3>Worship Services</h3>
 				<ul>
-					<li><a href="#">• Tuesdays at 19:00 am</a></li>
-					<li><a href="#">• Fridays at 9:45 am</a></li>
-					<li><a href="#">• Saturdays at 20:00 am</a></li>
-					<li><a href="#">• Sundays at 10:00 am</a></li>
+					<li><a href="#">Bible Study: Thursdays at 7:30 pm</a></li>
+					<li><a href="#">Every Second Wednesday and Thursdays:E-conference: 7:30 pm</a></li>
+					<li><a href="#">Tuesdays at 7:00 pm: Teens Bible Study</a></li>
+					<li><a href="#">Fridays at 7:00 pm: Teens Special Meetings</a></li>
 				</ul>
 			</div>
 			<div class="fb-like-box" data-href="https://www.facebook.com/w3layouts" data-width="250" data-height="380" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
