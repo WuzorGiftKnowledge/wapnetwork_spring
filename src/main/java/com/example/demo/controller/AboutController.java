@@ -87,7 +87,7 @@ public class AboutController {
    aboutService.addAbout(ab);
     model.addAttribute("status", true);
     
-    return "redirect:/about";
+    return "about";
     
     }
    
