@@ -61,7 +61,7 @@ public class AboutController {
    public String saveAbout(@ModelAttribute About ab, Model model, @RequestParam ("logo") MultipartFile logo ){
 
     ab.setDateUpdated(new Date());
-   //ab.setId(1L);
+   ab.setId(1L);
    
     if(logo.getOriginalFilename().isEmpty()){
         //continue;
@@ -87,7 +87,7 @@ public class AboutController {
    aboutService.addAbout(ab);
     model.addAttribute("status", true);
     
-    return "about";
+    return "redirect:/about";
     
     }
    
