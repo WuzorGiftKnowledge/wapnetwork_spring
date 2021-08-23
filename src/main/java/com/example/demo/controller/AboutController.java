@@ -6,6 +6,7 @@
 package com.example.demo.controller;
 import com.example.demo.model.About;
 import com.example.demo.model.Image;
+import com.example.demo.repository.AboutRepository;
 
 import com.example.demo.service.AboutService;
 import java.nio.file.Files;
@@ -34,7 +35,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 public class AboutController {
   @Autowired
      private AboutService aboutService;
-    
+  
+  @Autowired
+  private AboutRepository aboutRepository;
+  
     @Value("${files_uploading_directory}")
     public String upload_directory;
     
@@ -50,18 +54,18 @@ public class AboutController {
      @GetMapping("/about")
     public String about(Model model) {
         About a= aboutService.getAbout();
-       if (a ==null){
-       model.addAttribute("ab", new About());
-       }else{
+       //if (a ==null){
+      // model.addAttribute("ab", new About());
+     //  }else{
       model.addAttribute("ab",aboutService.getAbout());
-       }
+      // }
         return "about";
 }
     @PostMapping("/about")
    public String saveAbout(@ModelAttribute About ab, Model model, @RequestParam ("logo") MultipartFile logo ){
 
     ab.setDateUpdated(new Date());
-   ab.setId(1L);
+   ab.setId(aboutRepository.findTopByOrderByIdDesc().getId());
    
     if(logo.getOriginalFilename().isEmpty()){
         //continue;
