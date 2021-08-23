@@ -65,8 +65,10 @@ public class AboutController {
    public String saveAbout(@ModelAttribute About ab, Model model, @RequestParam ("logo") MultipartFile logo ){
 
     ab.setDateUpdated(new Date());
+    About abt=aboutRepository.findTopByOrderByIdDesc();
+    if (abt!=null){
    ab.setId(aboutRepository.findTopByOrderByIdDesc().getId());
-   
+    }
     if(logo.getOriginalFilename().isEmpty()){
         //continue;
     }else{
