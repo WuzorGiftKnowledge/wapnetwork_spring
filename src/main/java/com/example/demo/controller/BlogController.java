@@ -210,4 +210,11 @@ public class BlogController {
         return "redirect:/AllBlog";
     
        }
+    
+    @GetMapping("/blog/delete/{id}")
+    public String blog( @PathVariable Long id) {
+blogService.deleteBlog(id);
+        return "redirect:/AllBlog";
+    }
+    
 }
