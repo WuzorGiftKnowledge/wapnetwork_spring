@@ -95,7 +95,7 @@ private ImageRepository imageRepository;
 
     @Override
     public void deleteImage(Long id) {
-     Image img =   imageRepository.findById(id).orElseThrow();
+    Image img=imageRepository.findById(id).orElse(null);
      amazonClient.deleteFileFromS3Bucket(img.getLocation());
      imageRepository.delete(img);
     }
