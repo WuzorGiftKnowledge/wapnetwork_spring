@@ -8,6 +8,7 @@ package com.example.demo.service;
 import com.example.demo.model.Sermon;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface SermonService {
-     Sermon addSermon(Sermon ab);
+     Sermon addSermon(Sermon ab, MultipartFile file);
       Sermon getSermon(Long id);
       List<Sermon> getAllSermons();
      

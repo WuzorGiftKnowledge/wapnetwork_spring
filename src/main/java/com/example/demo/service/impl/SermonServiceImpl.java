@@ -9,11 +9,13 @@ import com.example.demo.model.Sermon;
 import com.example.demo.model.Image;
 import com.example.demo.repository.ImageRepository;
 import com.example.demo.repository.SermonRepository;
+import com.example.demo.service.ImageService;
 import com.example.demo.service.SermonService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -21,17 +23,29 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SermonServiceImpl implements SermonService{
-    
+     @Autowired
+ private ImageService imageService;
     @Autowired
 private SermonRepository sermonRepository;
  @Autowired
  private ImageRepository imageRepository;
      @Override
-    public Sermon addSermon(Sermon ab) {
+    public Sermon addSermon(Sermon ser,  MultipartFile file) {
+        if(file.isEmpty()){
+           
+           }else{
+                Image image= new Image(ser.getTitle());
+
+            image= imageService.addImage(image, file);
         
-         Image image= imageRepository.save(ab.getBImage());
-            ab.setBImage(image);
-        return sermonRepository.save(ab);
+              
+            
+            ser.setBImage(image);
+    
+        }
+          
+        
+        return sermonRepository.save(ser);
     }
 
     @Override

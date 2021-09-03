@@ -8,6 +8,7 @@ package com.example.demo.service;
 import com.example.demo.model.About;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface AboutService {
     
-    About addAbout(About ab);
+    About addAbout(About ab, MultipartFile file);
     About getAbout();
     List<About> getAllAbout();
      About updateAbout(About ab);

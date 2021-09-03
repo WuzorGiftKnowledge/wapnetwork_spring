@@ -28,6 +28,10 @@ public class Image implements Serializable {
     public Image(){
 this.isGallery=0;
     }
+     public Image(String title){
+          this.title=title;
+this.isGallery=0;
+    }
     public Image(String title, String location) {
         this.title=title;
         this.location=location;

@@ -69,76 +69,33 @@ public class BlogController {
         bl.setApproved(s.getApproved());
         
         if(blogImage.getOriginalFilename().isEmpty()){
-      
-       
-         
+                    
         bl.setBImage(s.getBImage());
-        
-       blogService.addBlog(bl);
-       
+             
+    } 
 
-          //continue;
-    } else{
-            
-              String fileName =  System.currentTimeMillis()+"_"+StringUtils.cleanPath(blogImage.getOriginalFilename());
-        Path path = Paths.get(upload_directory + fileName);
-        try {
-            Files.copy(blogImage.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/files/download/")
-                .path(fileName)
-                .toUriString();
-    
-        Image image= new Image(bl.getTitle(),  fileDownloadUri);
-        bl.setBImage(image);
-    
-
-    }
-
-  
-       blogService.addBlog(bl);
-    model.addAttribute("status", true);
+   blogService.addBlog(bl,blogImage);
+        model.addAttribute("status", true);
     
     return "redirect:/AllBlog";
-    
-            
-            
+     
         }
         
         else{
            bl.setDateupdated(new Date());
    bl.setApproved(0);
-
-    if(blogImage.getOriginalFilename().isEmpty()){
-        //continue;
-    }else{
-        String fileName =  System.currentTimeMillis()+"_"+StringUtils.cleanPath(blogImage.getOriginalFilename());
-        Path path = Paths.get(upload_directory + fileName);
-        try {
-            Files.copy(blogImage.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/files/download/")
-                .path(fileName)
-                .toUriString();
-    
-        Image image= new Image(bl.getTitle(),  fileDownloadUri);
-        bl.setBImage(image);
-    
-    }
-
-  
-       blogService.addBlog(bl);
+    blogService.addBlog(bl,blogImage);
     model.addAttribute("status", true);
     
     return "redirect:/blog/add";
     
+    
+    
     }
+
+  
+   
+    
 }
         
        

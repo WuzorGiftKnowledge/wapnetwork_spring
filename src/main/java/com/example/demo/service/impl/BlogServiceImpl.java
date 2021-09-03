@@ -10,10 +10,12 @@ import com.example.demo.model.Image;
 import com.example.demo.repository.BlogRepository;
 import com.example.demo.repository.ImageRepository;
 import com.example.demo.service.BlogService;
+import com.example.demo.service.ImageService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -27,11 +29,22 @@ public class BlogServiceImpl implements BlogService {
    @Autowired
    private ImageRepository imageRepository;
    
+    @Autowired
+ private ImageService imageService;
+ 
     @Override
-    public Blog addBlog(Blog bl) {
-        if(bl.getBImage()!=null){
-            Image image= imageRepository.save(bl.getBImage());
+    public Blog addBlog(Blog bl,MultipartFile file) {
+        if(file.isEmpty()){
+          //  Image image= imageRepository.save(bl.getBImage());
+          //  bl.setBImage(image);
+        }else{
+            
+             Image image= new Image(bl.getTitle());
+
+        image= imageService.addImage(image, file);
+                 
             bl.setBImage(image);
+       
     
         }
      Blog bb= blogRepository.save(bl);

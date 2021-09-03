@@ -18,8 +18,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -57,36 +59,31 @@ public String addGalleryImage(Model model) {
 @PostMapping("/gallery")
 public String saveGalleryImage(@ModelAttribute Image image, Model model, @RequestParam("images") MultipartFile[] images){
 
-    List<Image> images2= new ArrayList<>();
-
-    for (MultipartFile img : images) {
-        if(img.getOriginalFilename().isEmpty()){
-          //  continue;
-        }else{
-            String fileName =  System.currentTimeMillis()+"_"+StringUtils.cleanPath(img.getOriginalFilename());
-            Path path = Paths.get(upload_directory + fileName);
-            try {
-                Files.copy(img.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                    .path("/files/download/")
-                    .path(fileName)
-                    .toUriString();
-            
-            Image img_save= new Image(image.getTitle(),  fileDownloadUri);
-            img_save.setIsGallery(1);
-            imageService.addImage(img_save);
-        }
-        
-        
-    }
+  
+         
+           image.setIsGallery(1);
+            imageService.addImage(image, images);
+    
 
 
 return "redirect:/gallery/add";
 
 }
+
+@GetMapping("delete/gallery/{id}")
+public String deleteGalleryImage(Model model , @PathVariable Long id) {
+   imageService.deleteImage(id);
+    model.addAttribute("image","Image Deleted Successfully");
+    return "allgallery";
+}
+ @GetMapping("/all_gallery_images")
+   public String AllContact(Model model){
+   model.addAttribute("allgallery", imageService.getAllImages());
+   return "allgellery";
+     
+   }
+   
+   
 
 
 }

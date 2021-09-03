@@ -7,16 +7,17 @@ package com.example.demo.service;
 import com.example.demo.model.Program;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 /**
  *
  * @author Uduak-pc
  */
 @Service
 public interface ProgramService {
-       Program addProgram(Program ab);
+       Program addProgram(Program prog, MultipartFile file);
     Program getProgram(Long id);
     List<Program> getAllProgram();
-     Program updateProgram(Program ab);
+     Program updateProgram(Program prog);
      void deleteProgram(Long id);
       void deleteAllProgram();
       List<Program> getAllUpcomingPrgram();

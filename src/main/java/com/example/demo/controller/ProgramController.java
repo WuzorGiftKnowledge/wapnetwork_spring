@@ -67,30 +67,10 @@ public class ProgramController {
          
         prog.setPImage(s.getPImage());
         
-       programService.addProgram(prog);
-       
-
-          //continue;
-    } else{
+     
+    } 
             
-             String fileName =  System.currentTimeMillis()+"_"+StringUtils.cleanPath(programImage.getOriginalFilename());
-        Path path = Paths.get(upload_directory + fileName);
-        try {
-            Files.copy(programImage.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/files/download/")
-                .path(fileName)
-                .toUriString();
-    
-        Image image= new Image(prog.getTitle(),  fileDownloadUri);
-        prog.setPImage(image);
-    }
-
-  
-       programService.addProgram(prog);
+       programService.addProgram(prog,programImage);
     model.addAttribute("status", true);
     
     return "redirect:/all_programs";
@@ -103,27 +83,8 @@ public class ProgramController {
          prog.setDatePosted(new Date());
    prog.setUpcoming(1);
 
-    if(programImage.getOriginalFilename().isEmpty()){
-        //continue;
-    }else{
-        String fileName =  System.currentTimeMillis()+"_"+StringUtils.cleanPath(programImage.getOriginalFilename());
-        Path path = Paths.get(upload_directory + fileName);
-        try {
-            Files.copy(programImage.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/files/download/")
-                .path(fileName)
-                .toUriString();
-    
-        Image image= new Image(prog.getTitle(),  fileDownloadUri);
-        prog.setPImage(image);
-    }
-
-  
-       programService.addProgram(prog);
+   
+       programService.addProgram(prog,programImage);
     model.addAttribute("status", true);
     
     return "redirect:/program/add";

@@ -9,11 +9,13 @@ import com.example.demo.model.Image;
 import com.example.demo.model.Program;
 import com.example.demo.repository.ImageRepository;
 import com.example.demo.repository.ProgramRepository;
+import com.example.demo.service.ImageService;
 import com.example.demo.service.ProgramService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -21,15 +23,27 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProgramServiceImpl implements ProgramService {
-   
+     
+    @Autowired
+ private ImageService imageService;
     @Autowired
     private ProgramRepository programRepository;
      @Autowired
     private ImageRepository imageRepository;
     @Override
-    public Program addProgram(Program pro) {
-          if(pro.getPImage()!=null){
-            Image image= imageRepository.save(pro.getPImage());
+    public Program addProgram(Program pro, MultipartFile file) {
+        
+        
+           
+           if(file.isEmpty()){
+           
+           }else{
+                Image image= new Image(pro.getTitle());
+
+            image= imageService.addImage(image, file);
+        
+              
+            
             pro.setPImage(image);
     
         }

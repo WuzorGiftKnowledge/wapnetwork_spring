@@ -8,6 +8,7 @@ package com.example.demo.service;
 import com.example.demo.model.Image;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -17,13 +18,14 @@ import org.springframework.stereotype.Service;
 public interface ImageService {
     
     
-      Image addImage(Image ab);
+      Image addImage(Image img, MultipartFile[] file);
+       Image addImage(Image img, MultipartFile file);
       Image getImage(Long id);
       List<Image> getAllImages();
       List<Image> getGalleryImages();
-      Image updateImage(Image ab);
+      Image updateImage(Image img);
        void deleteImage(Long id);
-        void deleteAllImage();
+ //       void deleteAllImage();
     
     
 }

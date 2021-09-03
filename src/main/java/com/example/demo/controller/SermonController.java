@@ -73,63 +73,20 @@ public class SermonController {
          
         ser.setBImage(s.getBImage());
         
-       sermonService.addSermon(ser);
+     //  sermonService.addSermon(ser);
        
 
           //continue;
-    }else{
-        
-//          ser.setDateAdded(new Date());
-//   ser.setHide(1);
-        
-        String fileName =  System.currentTimeMillis()+"_"+StringUtils.cleanPath(sermonImage.getOriginalFilename());
-        Path path = Paths.get(upload_directory + fileName);
-        try {
-            Files.copy(sermonImage.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/files/download/")
-                .path(fileName)
-                .toUriString();
-    
-        Image image= new Image(ser.getTitle(),  fileDownloadUri);
-        ser.setBImage(image);
-       
-       
-    } 
-        sermonService.addSermon(ser);
+    }
+        sermonService.addSermon(ser, sermonImage);
          return "redirect:/all_sermons";
         }else
         {
-            if(sermonImage.getOriginalFilename().isEmpty()){
-           
-       
-          //continue;
-    }else{
-        
+         
           ser.setDateAdded(new Date());
            ser.setHide(1);
-        
-        String fileName =  System.currentTimeMillis()+"_"+StringUtils.cleanPath(sermonImage.getOriginalFilename());
-        Path path = Paths.get(upload_directory + fileName);
-        try {
-            Files.copy(sermonImage.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/files/download/")
-                .path(fileName)
-                .toUriString();
-    
-        Image image= new Image(ser.getTitle(),  fileDownloadUri);
-        ser.setBImage(image);
-        
        
-    }
-            sermonService.addSermon(ser);
+            sermonService.addSermon(ser, sermonImage);
          return "redirect:/sermons/add";
                   
               

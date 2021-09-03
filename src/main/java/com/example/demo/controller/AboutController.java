@@ -65,32 +65,36 @@ public class AboutController {
    public String saveAbout(@ModelAttribute About ab, Model model, @RequestParam ("logo") MultipartFile logo ){
 
     ab.setDateUpdated(new Date());
+    
     About abt=aboutRepository.findTopByOrderByIdDesc();
     if (abt!=null){
    ab.setId(aboutRepository.findTopByOrderByIdDesc().getId());
     }
-    if(logo.getOriginalFilename().isEmpty()){
-        //continue;
-    }else{
-        String fileName =  System.currentTimeMillis()+"_"+StringUtils.cleanPath(logo.getOriginalFilename());
-        Path path = Paths.get(upload_directory + fileName);
-        try {
-            Files.copy(logo.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/files/download/")
-                .path(fileName)
-                .toUriString();
-    
-        Image image= new Image("logo",  fileDownloadUri);
-        ab.setLImage(image);
-    }
+//    if(logo.getOriginalFilename().isEmpty()){
+//        //continue;
+//    }else{
+//        
+//        
+//        
+//        String fileName =  System.currentTimeMillis()+"_"+StringUtils.cleanPath(logo.getOriginalFilename());
+//        Path path = Paths.get(upload_directory + fileName);
+//        try {
+//            Files.copy(logo.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+//                .path("/files/download/")
+//                .path(fileName)
+//                .toUriString();
+//    
+//        Image image= new Image("logo",  fileDownloadUri);
+//        ab.setLImage(image);
+//    }
 
   
    
-   aboutService.addAbout(ab);
+   aboutService.addAbout(ab,logo);
     model.addAttribute("status", true);
     
     return "redirect:/about";

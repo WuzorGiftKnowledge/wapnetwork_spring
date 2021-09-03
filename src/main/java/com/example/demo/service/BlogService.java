@@ -8,6 +8,7 @@ package com.example.demo.service;
 import com.example.demo.model.Blog;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface BlogService {
-    Blog addBlog(Blog bl);
+    Blog addBlog(Blog bl, MultipartFile file);
     Blog getBlog(Long id);
     List<Blog> getAllBlog();
      Blog updateBlog(Blog bl);
