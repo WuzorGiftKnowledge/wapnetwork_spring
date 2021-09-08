@@ -35,6 +35,10 @@ public class AmazonClient {
     private void initializeAmazon() {
         AWSCredentials credentials = new BasicAWSCredentials(this.accessKey, this.secretKey);
         this.s3client = new AmazonS3Client(credentials);
+        
+        
+        
+        
     }
 
     public String uploadFile(MultipartFile multipartFile) {
@@ -42,7 +46,8 @@ public class AmazonClient {
         try {
             File file = convertMultiPartToFile(multipartFile);
             String fileName = generateFileName(multipartFile);
-            fileUrl = endpointUrl +  "/" + fileName;
+            fileUrl = endpointUrl + "/" + fileName;
+           
             uploadFileTos3bucket(fileName, file);
             file.delete();
         } catch (Exception e) {
@@ -60,7 +65,7 @@ public class AmazonClient {
     }
 
     private String generateFileName(MultipartFile multiPart) {
-        return new Date().getTime() + "-" + multiPart.getOriginalFilename().replace(" ", "_");
+        return new Date().getTime() + "-" + multiPart.getOriginalFilename();
     }
 
     private void uploadFileTos3bucket(String fileName, File file) {
