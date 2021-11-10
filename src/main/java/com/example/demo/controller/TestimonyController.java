@@ -68,7 +68,7 @@ public String view_single_testimony(Model model, @PathVariable int id) {
      @GetMapping("/AllTestimony")
     public String ViewAllTestimony(Model model) {
         model.addAttribute("allTestimony", testimonyService.getAllTestimony());
-        return "allTestimony";
+        return "Ample-admin/alltestimony";
 }
            @GetMapping("/unapprovedTestimony")
     public String ViewUapprovedTestimony(Model model) {

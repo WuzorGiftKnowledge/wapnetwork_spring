@@ -100,7 +100,7 @@ public class SermonController {
    @GetMapping("/all_sermons")
    public String AllSermons(Model model){
    model.addAttribute("allsermons", sermonService.getAllSermons());
-   return "allsermons";
+   return "Ample-admin/allsermons";
      
    } 
 

@@ -55,7 +55,10 @@ public class MainController {
         return "index2";
     }
         
-    
+     @GetMapping("/dashboard")
+    public String dashboard(){
+        return "Ample-admin/dashboard";
+    }
     
    
     

@@ -45,7 +45,7 @@ public class ContactFormController {
    @GetMapping("/all_contact")
    public String AllContact(Model model){
    model.addAttribute("allcontact", contactFormService.getAllContactForm());
-   return "allcontact";
+   return "Ample-admin/allcontacts";
      
    }
    

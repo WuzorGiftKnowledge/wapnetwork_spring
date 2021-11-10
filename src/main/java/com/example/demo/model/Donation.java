@@ -5,6 +5,8 @@
  */
 package com.example.demo.model;
 
+import com.example.demo.payStack.Channels;
+import com.example.demo.payStack.PaystackBearer;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -13,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -60,9 +63,26 @@ public class Donation implements Serializable {
   
 
    @Column
-   private String transactionRef;
+    private String reference;
    
-
+    @Column(columnDefinition = "varchar(255) default 'inconclusive'")
+    private String status;
+   
+  @Transient
+    private String callback_url;
+   @Column
+    private Integer invoice_limit;
+   
+    @Transient
+    private Channels[] channels;
+  @Transient
+    private String subaccount;
+ @Transient
+    private Integer transaction_charge;
+// @Enumerated(EnumType.STRING)
+   @Transient
+    private PaystackBearer paystackBearer
+            = PaystackBearer.ACCOUNT;
 
 
     public Donation() {
@@ -140,12 +160,70 @@ public class Donation implements Serializable {
     public void setApproved(int approved) {
         this.approved = approved;
     }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public String getCallback_url() {
+        return callback_url;
+    }
+
+    public void setCallback_url(String callback_url) {
+        this.callback_url = callback_url;
+    }
+
+    public Integer getInvoice_limit() {
+        return invoice_limit;
+    }
+
+    public void setInvoice_limit(Integer invoice_limit) {
+        this.invoice_limit = invoice_limit;
+    }
+
+    public Channels[] getChannels() {
+        return channels;
+    }
+
+    public void setChannels(Channels[] channels) {
+        this.channels = channels;
+    }
+
+    public String getSubaccount() {
+        return subaccount;
+    }
+
+    public void setSubaccount(String subaccount) {
+        this.subaccount = subaccount;
+    }
+
+    public Integer getTransaction_charge() {
+        return transaction_charge;
+    }
+
+    public void setTransaction_charge(Integer transaction_charge) {
+        this.transaction_charge = transaction_charge;
+    }
+
+    public PaystackBearer getPaystackBearer() {
+        return paystackBearer;
+    }
+
+    public void setPaystackBearer(PaystackBearer paystackBearer) {
+        this.paystackBearer = paystackBearer;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
     
-    public String getTransactionRef() {
-           return this.transactionRef;
-       }
-    
-       public void setTransactionRef(String transactionRef) {
-           this.transactionRef = transactionRef;
-       }
+   
 }

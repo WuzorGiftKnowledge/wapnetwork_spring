@@ -109,7 +109,7 @@ public class ProgramController {
 @GetMapping("/all_programs")
  public String ViewAllPrograms(Model model) {
         model.addAttribute("allPrograms", programService.getAllProgram());
-        return "allPrograms";
+        return "Ample-admin/allPrograms";
 }
   
   @GetMapping("program/past/{id}")

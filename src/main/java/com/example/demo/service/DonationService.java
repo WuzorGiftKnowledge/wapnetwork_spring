@@ -6,6 +6,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Donation;
+import com.example.demo.payStack.VerifyTransactionResponse;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -24,4 +25,5 @@ public interface DonationService {
       void deleteAllDonation();
       List<Donation> getAllApprovedDonations();
        List<Donation> getAllUnapprovedDonations();
+        Donation  verifyTransaction(String ref, Long id)throws Exception;
 }

@@ -33,6 +33,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<h3 th:text="${'Fullname : '+ donation.firstName + ' '+ donation.lastName }" ></h3>
 		<form id="paymentForm">
 			<div class="form-group">
+			  <input type="hidden" th:value="${donation.id}" id="donid" required />
+			</div>
+                    <div class="form-group">
 			  <input type="hidden" th:value="${donation.email}" id="email-address" required />
 			</div>
 			<div class="form-group">
@@ -59,17 +62,26 @@ paymentForm.addEventListener("submit", payWithPaystack, false);
 function payWithPaystack(e) {
   e.preventDefault();
   let handler = PaystackPop.setup({
-    key: 'pk_test_be8f4ea0ea4c4d8f28019a15bfab50a5635a1348', // Replace with your public key
+    key: 'pk_test_1cf5d6bfedb0fe1df70e8b5a6274c2d722b162ba', // Replace with your public key
     email: document.getElementById("email-address").value,
     amount: document.getElementById("amount").value * 100,
     ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
     // label: "Optional string that replaces customer email"
     onClose: function(){
-      alert('Window closed.');
+     var id =document.getElementById("donid").value;
+     alert('Transaction was not completed, window closed.');
+       window.location="/delete/donation/"+id; 
+      
+     
     },
     callback: function(response){
-      let message = 'Payment complete! Reference: ' + response.reference;
-      alert(message);
+    var reference = response.reference;
+    var id =document.getElementById("donid").value;
+     
+     // let message = 'Payment complete! Reference: ' + response.reference;
+      //alert(message);
+       window.location="/onlinegiving/verifyTransaction?ref="+reference+"&id="+id;
+       
     }
   });
   handler.openIframe();

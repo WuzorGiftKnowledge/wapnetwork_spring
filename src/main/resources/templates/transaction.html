@@ -1,0 +1,56 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Word and Prayer Network</title>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" media="all">
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="HolyChurch Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" th:href="@{/css/flexslider.css}" type="text/css" media="screen" />
+<script th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+<!-- header -->
+	
+        <div th:replace="includes :: header"></div>	
+<!-- header -->
+	
+	<!-- contact -->
+	<div class="contact">
+	<div class="container">
+		<h2>Transaction Success <br/>Thank you for your donation</h2>
+                <p th:text="${'Transaction Reference: '+ don.reference}" ></p>
+                 <p th:text="${'Email: '+ don.email}" ></p>
+                 <p th:text="${'First Name: '+ don.firstName}" ></p>
+                 <p th:text="${'Lastname: '+ don.email}" ></p>
+                 <p th:text="${'Description: '+ don.description}" ></p>
+                 <p th:text="${'Donation Method: '+ don.donationMethod}" ></p>
+                 <p th:text="${'Date: '+ don.dateDonated}" ></p>
+	<!--	<h3 th:text="${'Transaction Reference: '+ don.reference}" ></h3>
+		<h3 th:text="${'Fullname : '+ don.firstName + ' '+ don.lastName }" ></h3>
+		-->
+		 
+		</div>
+	</div>
+
+	
+
+
+	<!-- contact -->		
+	<!-- footer -->
+	
+        <div th:replace="includes :: footer"></div>	
+
+	<!-- footer -->
+</body>
+</html>

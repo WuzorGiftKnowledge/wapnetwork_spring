@@ -111,7 +111,7 @@ public class BlogController {
   
      public String ViewAllBlogs(Model model) {
         model.addAttribute("allPosts", blogService.getAllBlog());
-        return "allPosts";
+        return "Ample-admin/allPosts";
 }
          @GetMapping("/unapprovedBlog")
     public String ViewUapprovedBlogs(Model model) {

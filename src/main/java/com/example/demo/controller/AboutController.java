@@ -59,7 +59,7 @@ public class AboutController {
       }else{
       model.addAttribute("ab",aboutService.getAbout());
        }
-        return "about";
+        return "Ample-admin/about";
 }
     @PostMapping("/about")
    public String saveAbout(@ModelAttribute About ab, Model model, @RequestParam ("logo") MultipartFile logo ){

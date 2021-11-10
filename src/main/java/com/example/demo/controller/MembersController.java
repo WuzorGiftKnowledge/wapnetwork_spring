@@ -129,6 +129,6 @@ public String confirmRegistration
     @RequestMapping(value = "/viewmembers", method = RequestMethod.GET)
     public String ViewMembers(Model model) {
         model.addAttribute("allmembers", membersService.getAllMembers());
-        return "allmembers";
+        return "Ample-admin/allmembers";
 }
 }

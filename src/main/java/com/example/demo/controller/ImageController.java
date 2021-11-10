@@ -79,7 +79,7 @@ public String deleteGalleryImage(Model model , @PathVariable Long id) {
  @GetMapping("/all_gallery_images")
    public String AllContact(Model model){
    model.addAttribute("allgallery", imageService.getAllImages());
-   return "allgellery";
+   return "Ample-admin/allgallery";
      
    }
    
